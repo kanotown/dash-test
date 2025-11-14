@@ -40,13 +40,13 @@ app.layout = html.Div([
 )
 def switch(_, __):
     ctx = dash.callback_context
-    page = 'calc' if not ctx.triggered or 'calc' in ctx.triggered[0]['prop_id'] else 'data'
+    page = 'calc' if not ctx.triggered or 'calc' in ctx.triggered[0]['prop_id'] else 'test'
 
     return (
         {'display': 'block' if page == 'calc' else 'none'},
-        {'display': 'block' if page == 'data' else 'none'},
+        {'display': 'block' if page == 'test' else 'none'},
         {**NAV_BTN, 'backgroundColor': "#6e6cec" if page == 'calc' else 'transparent'},
-        {**NAV_BTN, 'backgroundColor': '#6e6cec' if page == 'data' else 'transparent'}
+        {**NAV_BTN, 'backgroundColor': '#6e6cec' if page == 'test' else 'transparent'}
     )
 
 calc_page.register_callbacks(app, df)
