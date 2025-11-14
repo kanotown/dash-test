@@ -23,20 +23,20 @@ app.layout = html.Div([
         html.Div('📊 Sample', style={'color': 'white', 'fontSize': '24px', 'fontWeight': 'bold'}),
         html.Div([
             html.Button('予測', id='nav-calc'),
-            html.Button('テスト', id='nav-data'),
+            html.Button('テスト', id='nav-test'),
         ])
     ], style={'position': 'fixed', 'top': 0, 'left': 0, 'right': 0, 'height': '60px', 'backgroundColor': "#3c3aa0", 'display': 'flex', 'justifyContent': 'space-between', 'alignItems': 'center', 'padding': '0 1rem', 'zIndex': 1000}),
 
     # ページ
     html.Div([
         html.Div(id='page-calc', children=calc_page.get_layout()),
-        html.Div(id='page-data', children=test_page.get_layout(), style={'display': 'none'})
+        html.Div(id='page-test', children=test_page.get_layout(), style={'display': 'none'})
     ], style={'padding': '5rem 1rem 1rem', 'maxWidth': '1200px', 'margin': 'auto', 'textAlign': 'center'})
 ])
 
 @app.callback(
-    [Output('page-calc', 'style'), Output('page-data', 'style'), Output('nav-calc', 'style'), Output('nav-data', 'style')],
-    [Input('nav-calc', 'n_clicks'), Input('nav-data', 'n_clicks')]
+    [Output('page-calc', 'style'), Output('page-test', 'style'), Output('nav-calc', 'style'), Output('nav-test', 'style')],
+    [Input('nav-calc', 'n_clicks'), Input('nav-test', 'n_clicks')]
 )
 def switch(_, __):
     ctx = dash.callback_context
